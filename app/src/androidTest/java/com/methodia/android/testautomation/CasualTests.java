@@ -10,13 +10,22 @@ import java.util.ArrayList;
 public class CasualTests extends InstrumentationTestCase {
 
     ArrayList<String> stringList;
+    ArrayList<Integer> integerList;
+    ArrayList<Integer> resultList;
     String result = "";
 
-    public void init() {
-        stringList = new ArrayList<String>();
+    public void initStringList() {
+        stringList = new ArrayList<>();
         stringList.add("asd");
         stringList.add("asd");
         stringList.add("asd");
+    }
+
+    private void initIntegerList() {
+        integerList = new ArrayList<>();
+        integerList.add(2);
+        integerList.add(5);
+        integerList.add(6);
     }
 
     public String myConcat(ArrayList<String> list) {
@@ -26,10 +35,25 @@ public class CasualTests extends InstrumentationTestCase {
         return result;
     }
 
+    public ArrayList<Integer> myFilter(ArrayList<Integer> list) {
+        ArrayList<Integer> result = new ArrayList<>();
+        for (Integer i : list) {
+            if (i % 2 == 0) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
     public void testConcat() throws Exception {
-        init();
-        String result = myConcat(stringList);
-        assertTrue(result.equals("asdasdasd"));
+
+        //initStringList();
+        //String result = myConcat(stringList);
+        //assertTrue(result.equals("asdasdasd"));
+
+        initIntegerList();
+        resultList = myFilter(integerList);
+        assertTrue(resultList.size() == 2);
     }
 
 }
