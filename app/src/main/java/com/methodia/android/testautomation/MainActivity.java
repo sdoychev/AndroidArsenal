@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends Activity {
 
@@ -33,8 +34,8 @@ public class MainActivity extends Activity {
         modelAdapter = new ModelAdapter(this, modelList);
         listView.setAdapter(modelAdapter);
 
-        ArrayAdapter<CharSequence> sortOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.sortSelectionOptions, android.R.layout.simple_spinner_item);
-        sortOptionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> sortOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.sortSelectionOptions, android.R.layout.simple_spinner_dropdown_item);
+        sortOptionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sortSelectionSpinner.setAdapter(sortOptionsAdapter);
         sortSelectionSpinner.setOnItemSelectedListener(new SortOrderSelectedListener());
     }
@@ -91,15 +92,17 @@ public class MainActivity extends Activity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String sortOrder = parent.getItemAtPosition(position).toString();
+            Comparator<Model> comparator = Model.NameAscendingComparator; //by default we sort by name ascending
             if (sortOrder.equals(getString(R.string.nameAsc))) {
-                Collections.sort(modelList, Model.NameAscendingComparator);
+                comparator = Model.NameAscendingComparator;
             } else if (sortOrder.equals(getString(R.string.nameDesc))) {
-                Collections.sort(modelList, Model.NameDescendingComparator);
+                comparator = Model.NameDescendingComparator;
             } else if (sortOrder.equals(getString(R.string.numberAsc))) {
-                Collections.sort(modelList, Model.NumberAscendingComparator);
+                comparator = Model.NumberAscendingComparator;
             } else if (sortOrder.equals(getString(R.string.numberDesc))) {
-                Collections.sort(modelList, Model.NumberDescendingComparator);
+                comparator = Model.NumberDescendingComparator;
             }
+            Collections.sort(modelList, comparator);
             modelAdapter.notifyDataSetChanged();
         }
 
