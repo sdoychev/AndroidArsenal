@@ -13,37 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/sortNameAsc"
+        <Spinner
+            android:id="@+id/sortSelectionSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="sortList"
-            android:text="Name Asc" />
-
-        <Button
-            android:id="@+id/sortNameDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="sortList"
-            android:text="Name Desc" />
-
-        <Button
-            android:id="@+id/sortNumberAsc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="sortList"
-            android:text="Number Asc" />
-
-        <Button
-            android:id="@+id/sortNumberDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="sortList"
-            android:text="Number Desc" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sortSelectionOptions">
+        <item>@string/nameAsc</item>
+        <item>@string/nameDesc</item>
+        <item>@string/numberAsc</item>
+        <item>@string/numberDesc</item>
+    </string-array>
+</resources>

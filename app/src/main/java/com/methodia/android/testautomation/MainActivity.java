@@ -6,7 +6,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +18,7 @@ public class MainActivity extends Activity {
 
     private ArrayList<Model> modelList;
     private ModelAdapter modelAdapter;
+    private Spinner sortSelectionSpinner;
     private ListView listView;
 
     @Override
@@ -28,10 +32,16 @@ public class MainActivity extends Activity {
 
         modelAdapter = new ModelAdapter(this, modelList);
         listView.setAdapter(modelAdapter);
+
+        ArrayAdapter<CharSequence> sortOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.sortSelectionOptions, android.R.layout.simple_spinner_item);
+        sortOptionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        sortSelectionSpinner.setAdapter(sortOptionsAdapter);
+        sortSelectionSpinner.setOnItemSelectedListener(new SortOrderSelectedListener());
     }
 
     private void initLayout() {
         listView = (ListView) findViewById(R.id.listView);
+        sortSelectionSpinner = (Spinner) findViewById(R.id.sortSelectionSpinner);
     }
 
     private void initData(ArrayList<Model> list) {
@@ -55,24 +65,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void sortList(View v) {
-        switch (v.getId()) {
-            case R.id.sortNameAsc:
-                Collections.sort(modelList, Model.NameAscendingComparator);
-                break;
-            case R.id.sortNameDesc:
-                Collections.sort(modelList, Model.NameDescendingComparator);
-                break;
-            case R.id.sortNumberAsc:
-                Collections.sort(modelList, Model.NumberAscendingComparator);
-                break;
-            case R.id.sortNumberDesc:
-                Collections.sort(modelList, Model.NumberDescendingComparator);
-                break;
-        }
-        modelAdapter.notifyDataSetChanged();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -93,5 +85,27 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class SortOrderSelectedListener implements android.widget.AdapterView.OnItemSelectedListener {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            String sortOrder = parent.getItemAtPosition(position).toString();
+            if (sortOrder.equals(getString(R.string.nameAsc))) {
+                Collections.sort(modelList, Model.NameAscendingComparator);
+            } else if (sortOrder.equals(getString(R.string.nameDesc))) {
+                Collections.sort(modelList, Model.NameDescendingComparator);
+            } else if (sortOrder.equals(getString(R.string.numberAsc))) {
+                Collections.sort(modelList, Model.NumberAscendingComparator);
+            } else if (sortOrder.equals(getString(R.string.numberDesc))) {
+                Collections.sort(modelList, Model.NumberDescendingComparator);
+            }
+            modelAdapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            //do nothing
+        }
     }
 }

@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+    <string name="nameAsc">Sort by name - ASC</string>
+    <string name="nameDesc">Sort by name - DESC</string>
+    <string name="numberAsc">Sort by number - ASC</string>
+    <string name="numberDesc">Sort by number - DESC</string>
 </resources>
