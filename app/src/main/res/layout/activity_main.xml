@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="sortNameAsc"
+            android:onClick="sortList"
             android:text="Name Asc" />
 
         <Button
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="sortNameDesc"
+            android:onClick="sortList"
             android:text="Name Desc" />
 
         <Button
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="sortNumberAsc"
+            android:onClick="sortList"
             android:text="Number Asc" />
 
         <Button
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="sortNumberDesc"
+            android:onClick="sortList"
             android:text="Number Desc" />
 
     </LinearLayout>

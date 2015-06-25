@@ -15,18 +15,23 @@ public class MainActivity extends Activity {
 
     private ArrayList<Model> modelList;
     private ModelAdapter modelAdapter;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initLayout();
 
         modelList = new ArrayList<>();
         initData(modelList);
-        modelAdapter = new ModelAdapter(this, modelList);
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        modelAdapter = new ModelAdapter(this, modelList);
         listView.setAdapter(modelAdapter);
+    }
+
+    private void initLayout() {
+        listView = (ListView) findViewById(R.id.listView);
     }
 
     private void initData(ArrayList<Model> list) {
@@ -50,33 +55,21 @@ public class MainActivity extends Activity {
         }
     }
 
-    //TODO Refactor - find a way to create a function for all four below.
-
-    public void sortNameAsc(View v) {
-        Log.e("LIST", "Sorting by name, ascending ...");
-        Collections.sort(modelList, Model.NameAscendingComparator);
-        printList(modelList);
-        modelAdapter.notifyDataSetChanged();
-    }
-
-    public void sortNameDesc(View v) {
-        Log.e("LIST", "Sorting by name, descending ...");
-        Collections.sort(modelList, Model.NameDescendingComparator);
-        printList(modelList);
-        modelAdapter.notifyDataSetChanged();
-    }
-
-    public void sortNumberAsc(View v) {
-        Log.e("LIST", "Sorting by number, ascending ...");
-        Collections.sort(modelList, Model.NumberAscendingComparator);
-        printList(modelList);
-        modelAdapter.notifyDataSetChanged();
-    }
-
-    public void sortNumberDesc(View v) {
-        Log.e("LIST", "Sorting by number, descending ...");
-        Collections.sort(modelList, Model.NumberDescendingComparator);
-        printList(modelList);
+    public void sortList(View v) {
+        switch (v.getId()) {
+            case R.id.sortNameAsc:
+                Collections.sort(modelList, Model.NameAscendingComparator);
+                break;
+            case R.id.sortNameDesc:
+                Collections.sort(modelList, Model.NameDescendingComparator);
+                break;
+            case R.id.sortNumberAsc:
+                Collections.sort(modelList, Model.NumberAscendingComparator);
+                break;
+            case R.id.sortNumberDesc:
+                Collections.sort(modelList, Model.NumberDescendingComparator);
+                break;
+        }
         modelAdapter.notifyDataSetChanged();
     }
 
