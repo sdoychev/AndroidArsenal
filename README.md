@@ -5,10 +5,9 @@ Libraries included:
 - Automating User Interface Testing
 - AsyncTasks tests
 - Casual Java-oriented tests
+- Timber
 
 TODO demos with:
-- Timber
-- PID Cat
 - Butter knife
 - Lombok
 - Picasso
