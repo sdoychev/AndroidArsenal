@@ -20,6 +20,12 @@ public class TimberActivity extends Activity {
         Timber.i("Test INFO logging.");
         Timber.d("Test DEBUG logging.");
         Timber.e("Test ERROR logging.");
+
+        String stringParam = "String";
+        int intParam = 123;
+        Timber.i("Test logging with string param - %s.", stringParam);
+        Timber.d("Test logging with int param - %d.", intParam);
+        Timber.e("Test logging with string and int params - %s, %d.", stringParam, intParam);
     }
 
     @Override
