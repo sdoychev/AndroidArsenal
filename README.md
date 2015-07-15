@@ -2,11 +2,11 @@
 Demos with useful libraries for Android OS
 
 Libraries included:
-- Automating User Interface Testing
-- AsyncTasks tests
+- [Automating User Interface Testing] (http://code.tutsplus.com/tutorials/automating-user-interface-testing-on-android--cms-23969)
+- [AsyncTask] tests (http://developer.android.com/reference/android/os/AsyncTask.html)
 - Casual Java-oriented tests
-- Timber
-- Butter knife
+- [Timber] (https://github.com/JakeWharton/timber)
+- [Butter knife] (https://github.com/JakeWharton/butterknife)
 
 TODO demos with:
 - [Lombok] (https://projectlombok.org/)
