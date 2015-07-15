@@ -6,9 +6,9 @@ Libraries included:
 - AsyncTasks tests
 - Casual Java-oriented tests
 - Timber
+- Butter knife
 
 TODO demos with:
-- Butter knife
 - Lombok
 - Picasso
 - ion
