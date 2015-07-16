@@ -7,9 +7,9 @@ Libraries included:
 - Casual Java-oriented tests
 - [Timber] (https://github.com/JakeWharton/timber)
 - [Butter knife] (https://github.com/JakeWharton/butterknife)
+- [Lombok] (https://projectlombok.org/)
 
 TODO demos with:
-- [Lombok] (https://projectlombok.org/)
 - [Picasso] (https://github.com/square/picasso)
 - [ion] (https://github.com/koush/ion)
 - [Retrofit] (https://github.com/square/retrofit)

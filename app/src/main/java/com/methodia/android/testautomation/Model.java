@@ -3,11 +3,35 @@ package com.methodia.android.testautomation;
 import java.util.Comparator;
 
 /**
- * Created by Doychev on 24.6.2015 г..
+ * Created by Doychev on 24.6.2015 г.
  */
-public class Model {
+public
+@lombok.Getter
+@lombok.Setter
+@lombok.AllArgsConstructor(suppressConstructorProperties = true)
+@lombok.EqualsAndHashCode(of = {"name", "number"})
+@lombok.ToString
+/* @Data =
+    @lombok.Getter
+    @lombok.Setter
+    @lombok.RequiredArgsConstructor
+    @lombok.EqualsAndHashCode(of = {“equalsParam”, “hashCodeParam”})
+    @lombok.ToString
+    -
+    @Getter and @Setter annotation at class level we ask Lombok to generate getter and setter for all non-static fields. Final fields will not have setters.
+    -
+    @RequiredArgsConstructor generates a constructor for all final fields, with parameter order same as field order.
+    @NoArgsConstructor creates an empty constructor.
+    @AllArgsConstructor(suppressConstructorProperties=true) creates a constructor for all fields.
+    -
+    Never use @lombok.EqualsAndHashCode without specifying the fields. Without parameters, @lombok.EqualsAndHashCode will use all fields, possibly creating heavy equals and hashCode methods.
+    -
+    @lombok.ToString(exclude = "strList") - While having a toString method is highly suggested, avoid collections and arrays fields in the toString method to avoid too long text lines.
+    -
+    More info - https://gualtierotesta.wordpress.com/2014/03/03/tutorial-using-lombok-to-reduce-boilerplate-code-in-java/
+*/
+class Model {
 
-    private String name;
     // Comparator for sorting the list by Model name in ascending order.
     public static Comparator<Model> NameAscendingComparator = new Comparator<Model>() {
         @Override
@@ -26,7 +50,6 @@ public class Model {
             return rhsName.compareTo(lhsName);
         }
     };
-    private int number;
     // Comparator for sorting the list by Model number in ascending order.
     public static Comparator<Model> NumberAscendingComparator = new Comparator<Model>() {
         @Override
@@ -45,7 +68,11 @@ public class Model {
             return rhsNumber - lhsNumber;
         }
     };
+    private String name;
+    private int number;
 
+    /* No longer required - Lombok is here!
+    *
     public Model(String name, int number) {
         this.name = name;
         this.number = number;
@@ -71,4 +98,6 @@ public class Model {
     public String toString() {
         return "Model with name: " + name + " and number: " + number;
     }
+    *
+    */
 }
