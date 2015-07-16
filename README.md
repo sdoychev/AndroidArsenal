@@ -8,10 +8,10 @@ Libraries included:
 - [Timber] (https://github.com/JakeWharton/timber)
 - [Butter knife] (https://github.com/JakeWharton/butterknife)
 - [Lombok] (https://projectlombok.org/)
-
-TODO demos with:
 - [Picasso] (https://github.com/square/picasso)
 - [ion] (https://github.com/koush/ion)
+
+TODO demos with:
 - [Retrofit] (https://github.com/square/retrofit)
 - [Robospice] (https://github.com/stephanenicolas/robospice)
 - Robospice + Retrofit
