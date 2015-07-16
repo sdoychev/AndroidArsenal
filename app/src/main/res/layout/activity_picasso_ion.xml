@@ -15,6 +15,7 @@
         android:text="@string/tests_picasso_ion" />
 
     <LinearLayout
+        android:id="@+id/firstRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/introLabel"
@@ -26,20 +27,23 @@
             android:id="@+id/imageViewOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
 
         <ImageView
             android:id="@+id/imageViewTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/secondRow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/introLabel"
+        android:layout_below="@+id/firstRow"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:weightSum="2">
@@ -48,13 +52,15 @@
             android:id="@+id/imageViewThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
 
         <ImageView
             android:id="@+id/imageViewFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
 
     </LinearLayout>
 
