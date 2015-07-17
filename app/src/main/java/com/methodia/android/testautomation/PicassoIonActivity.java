@@ -6,9 +6,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
+import timber.log.Timber;
 
 
 public class PicassoIonActivity extends Activity {
@@ -28,13 +32,16 @@ public class PicassoIonActivity extends Activity {
 
         Util.toolsSetup(this, this);
 
+        String imgOne = "http://www.longislandpress.com/wp-content/uploads/2013/03/DropkickMurphys.jpg";
+        String imgTwo = "http://i.ytimg.com/vi/diSN8l1DyNY/maxresdefault.jpg";
+
         Picasso.with(this)
-                .load("http://www.longislandpress.com/wp-content/uploads/2013/03/DropkickMurphys.jpg")
+                .load(imgOne)
                 .resize(500, 500)   //optional
                 .into(imageViewOne);
 
         Picasso.with(this)
-                .load("http://i.ytimg.com/vi/diSN8l1DyNY/maxresdefault.jpg")
+                .load(imgTwo)
                 .resize(500, 500)
                 .centerCrop()
                 .rotate(360)
@@ -42,33 +49,40 @@ public class PicassoIonActivity extends Activity {
                 .error(android.R.drawable.stat_notify_error)
                 .into(imageViewTwo);
 
-        /*
         Ion.with(this)
                 .load("http://api.openweathermap.org/data/2.5/weather?q=London,uk")
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
-                        Timber.e(result.getAsString());
+                        Timber.d(result.toString());
                     }
                 });
 
+        /* Also available:
+            - Post JSON and read JSON.
+            - Post application/x-www-form-urlencoded and read a String.
+            - Post multipart/form-data and read JSON with an upload progress bar.
+            - Download a File with a progress bar.
+            - Setting Headers.
+            - Load an image into an ImageView.
+            - Futures - All operations return a custom Future that allows you to specify a callback that runs on completion.
+            - Seamlessly use your own Java classes with Gson. */
+
         Ion.with(this)
-                .load("http://cupegraf.com/data_images/wallpapers/36/414419-dropkick-murphys.jpg")
+                .load(imgOne)
                 .withBitmap()
-                .placeholder(R.drawable.placeholder_image)
-                .error(R.drawable.error_image)
-                .animateLoad(spinAnimation)
-                .animateIn(fadeInAnimation)
-                .intoImageView(imageView);
+                .resize(500, 500)   //optional
+                .intoImageView(imageViewThree);
 
         Ion.with(imageViewFour)
-                .placeholder(R.drawable.placeholder_image)
-                .error(R.drawable.error_image)
-                .animateLoad(spinAnimation)
-                .animateIn(fadeInAnimation)
-                .load("http://example.com/image.png");
-        */
+                .placeholder(android.R.drawable.stat_notify_sync)
+                .error(android.R.drawable.stat_notify_error)
+                        //.animateLoad(spinAnimation)
+                        //.animateIn(fadeInAnimation)
+                .resize(500, 500)
+                .centerCrop()
+                .load(imgTwo);
     }
 
     @Override
