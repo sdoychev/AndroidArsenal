@@ -43,6 +43,7 @@ public class PicassoIonActivity extends Activity {
         Picasso.with(this)
                 .load(imgTwo)
                 .resize(500, 500)
+                        //.fit()        //You have to choose fit or resize. Good practice - always use fit with centerCrop.
                 .centerCrop()
                 .rotate(360)
                 .placeholder(android.R.drawable.stat_notify_sync)

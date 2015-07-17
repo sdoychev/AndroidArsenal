@@ -12,6 +12,9 @@ Libraries included:
 - [ion] (https://github.com/koush/ion)
 
 TODO demos with:
+- [Picasso Transformations] (https://github.com/wasabeef/picasso-transformations)
+- [Glide] (https://github.com/bumptech/glide)
+- [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
 - [Retrofit] (https://github.com/square/retrofit)
 - [Robospice] (https://github.com/stephanenicolas/robospice)
 - Robospice + Retrofit
@@ -23,5 +26,4 @@ TODO demos with:
 - [Parceler] (https://github.com/johncarl81/parceler)
 - [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)
-- [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
 - [EventBus] (http://greenrobot.github.io/EventBus/)
