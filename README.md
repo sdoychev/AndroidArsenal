@@ -23,3 +23,5 @@ TODO demos with:
 - [Parceler] (https://github.com/johncarl81/parceler)
 - [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)
+- [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
+- [EventBus] (http://greenrobot.github.io/EventBus/)
