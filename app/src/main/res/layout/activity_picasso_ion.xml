@@ -27,15 +27,13 @@
             android:id="@+id/imageViewOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/imageViewTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -52,15 +50,13 @@
             android:id="@+id/imageViewThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/imageViewFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_always_landscape_portrait" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 

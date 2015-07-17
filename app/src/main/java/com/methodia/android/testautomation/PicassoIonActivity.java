@@ -28,6 +28,20 @@ public class PicassoIonActivity extends Activity {
 
         Util.toolsSetup(this, this);
 
+        Picasso.with(this)
+                .load("http://www.longislandpress.com/wp-content/uploads/2013/03/DropkickMurphys.jpg")
+                .resize(500, 500)   //optional
+                .into(imageViewOne);
+
+        Picasso.with(this)
+                .load("http://i.ytimg.com/vi/diSN8l1DyNY/maxresdefault.jpg")
+                .resize(500, 500)
+                .centerCrop()
+                .rotate(360)
+                .placeholder(android.R.drawable.stat_notify_sync)
+                .error(android.R.drawable.stat_notify_error)
+                .into(imageViewTwo);
+
         /*
         Ion.with(this)
                 .load("http://api.openweathermap.org/data/2.5/weather?q=London,uk")
@@ -38,13 +52,7 @@ public class PicassoIonActivity extends Activity {
                         Timber.e(result.getAsString());
                     }
                 });
-        */
 
-        Picasso.with(this)
-                .load("https://cms-assets.tutsplus.com/uploads/users/21/posts/19431/featured_image/CodeFeature.jpg")
-                .into(imageViewOne);
-
-        /*
         Ion.with(this)
                 .load("http://cupegraf.com/data_images/wallpapers/36/414419-dropkick-murphys.jpg")
                 .withBitmap()
@@ -53,15 +61,7 @@ public class PicassoIonActivity extends Activity {
                 .animateLoad(spinAnimation)
                 .animateIn(fadeInAnimation)
                 .intoImageView(imageView);
-        */
 
-        Picasso.with(this)
-                .load("http://cupegraf.com/data_images/wallpapers/36/414401-dropkick-murphys.jpg")
-                .resize(50, 50)
-                .centerCrop()
-                .into(imageViewThree);
-
-        /*
         Ion.with(imageViewFour)
                 .placeholder(R.drawable.placeholder_image)
                 .error(R.drawable.error_image)
