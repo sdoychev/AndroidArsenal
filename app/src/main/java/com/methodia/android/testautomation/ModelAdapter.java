@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.methodia.android.testautomation.Model.RowModel;
+
 import java.util.ArrayList;
 
 /**
@@ -16,21 +18,21 @@ import java.util.ArrayList;
 public class ModelAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<Model> models;
+    private ArrayList<RowModel> rowModels;
 
-    public ModelAdapter(Context context, ArrayList<Model> modelList) {
+    public ModelAdapter(Context context, ArrayList<RowModel> rowModelList) {
         this.context = context;
-        this.models = modelList;
+        this.rowModels = rowModelList;
     }
 
     @Override
     public int getCount() {
-        return models.size();
+        return rowModels.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return models.get(position);
+        return rowModels.get(position);
     }
 
     @Override
@@ -50,8 +52,8 @@ public class ModelAdapter extends BaseAdapter {
 
         TextView textName = (TextView) listViewRow.findViewById(R.id.modelName);
         TextView textNumber = (TextView) listViewRow.findViewById(R.id.modelNumber);
-        textName.setText(models.get(position).getName());
-        textNumber.setText("" + models.get(position).getNumber());
+        textName.setText(rowModels.get(position).getName());
+        textNumber.setText("" + rowModels.get(position).getNumber());
 
         return listViewRow;
     }

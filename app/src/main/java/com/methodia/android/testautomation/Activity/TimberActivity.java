@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation.Activities;
+package com.methodia.android.testautomation.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -123,5 +123,6 @@
     <orderEntry type="library" exported="" scope="TEST" name="rules-0.2" level="project" />
     <orderEntry type="library" exported="" name="lombok-1.12.6" level="project" />
     <orderEntry type="library" exported="" name="robospice-1.4.14" level="project" />
+    <orderEntry type="library" name="runner-0.2" level="project" />
   </component>
 </module>

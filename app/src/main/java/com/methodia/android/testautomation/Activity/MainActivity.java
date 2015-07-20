@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation.Activities;
+package com.methodia.android.testautomation.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.methodia.android.testautomation.Model;
+import com.methodia.android.testautomation.Model.RowModel;
 import com.methodia.android.testautomation.ModelAdapter;
 import com.methodia.android.testautomation.R;
 
@@ -21,7 +21,7 @@ import java.util.Comparator;
 
 public class MainActivity extends Activity {
 
-    private ArrayList<Model> modelList;
+    private ArrayList<RowModel> rowModelList;
     private ModelAdapter modelAdapter;
     private Spinner sortSelectionSpinner;
     private ListView listView;
@@ -32,10 +32,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         initLayout();
 
-        modelList = new ArrayList<>();
-        initData(modelList);
+        rowModelList = new ArrayList<>();
+        initData(rowModelList);
 
-        modelAdapter = new ModelAdapter(this, modelList);
+        modelAdapter = new ModelAdapter(this, rowModelList);
         listView.setAdapter(modelAdapter);
 
         ArrayAdapter<CharSequence> sortOptionsAdapter = ArrayAdapter.createFromResource(this, R.array.sortSelectionOptions, android.R.layout.simple_spinner_dropdown_item);
@@ -49,24 +49,24 @@ public class MainActivity extends Activity {
         sortSelectionSpinner = (Spinner) findViewById(R.id.sortSelectionSpinner);
     }
 
-    private void initData(ArrayList<Model> list) {
-        Model modelOne = new Model("Aaa", 8);
-        list.add(modelOne);
-        Model modelTwo = new Model("Aaa", 2);
-        list.add(modelTwo);
-        Model modelThree = new Model("Bbb", 1);
-        list.add(modelThree);
-        Model modelFour = new Model("Bbb", 5);
-        list.add(modelFour);
-        Model modelFive = new Model("Ccc", 6);
-        list.add(modelFive);
-        Model modelSix = new Model("Ccc", 3);
-        list.add(modelSix);
+    private void initData(ArrayList<RowModel> list) {
+        RowModel rowModelOne = new RowModel("Aaa", 8);
+        list.add(rowModelOne);
+        RowModel rowModelTwo = new RowModel("Aaa", 2);
+        list.add(rowModelTwo);
+        RowModel rowModelThree = new RowModel("Bbb", 1);
+        list.add(rowModelThree);
+        RowModel rowModelFour = new RowModel("Bbb", 5);
+        list.add(rowModelFour);
+        RowModel rowModelFive = new RowModel("Ccc", 6);
+        list.add(rowModelFive);
+        RowModel rowModelSix = new RowModel("Ccc", 3);
+        list.add(rowModelSix);
     }
 
-    private void printList(ArrayList<Model> modelList) {
-        for (int i = 0; i < modelList.size(); i++) {
-            Log.e("LIST", modelList.get(i).toString());
+    private void printList(ArrayList<RowModel> rowModelList) {
+        for (int i = 0; i < rowModelList.size(); i++) {
+            Log.e("LIST", rowModelList.get(i).toString());
         }
     }
 
@@ -96,17 +96,17 @@ public class MainActivity extends Activity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String sortOrder = parent.getItemAtPosition(position).toString();
-            Comparator<Model> comparator = Model.NameAscendingComparator; //by default we sort by name ascending
+            Comparator<RowModel> comparator = RowModel.NameAscendingComparator; //by default we sort by name ascending
             if (sortOrder.equals(getString(R.string.nameAsc))) {
-                comparator = Model.NameAscendingComparator;
+                comparator = RowModel.NameAscendingComparator;
             } else if (sortOrder.equals(getString(R.string.nameDesc))) {
-                comparator = Model.NameDescendingComparator;
+                comparator = RowModel.NameDescendingComparator;
             } else if (sortOrder.equals(getString(R.string.numberAsc))) {
-                comparator = Model.NumberAscendingComparator;
+                comparator = RowModel.NumberAscendingComparator;
             } else if (sortOrder.equals(getString(R.string.numberDesc))) {
-                comparator = Model.NumberDescendingComparator;
+                comparator = RowModel.NumberDescendingComparator;
             }
-            Collections.sort(modelList, comparator);
+            Collections.sort(rowModelList, comparator);
             modelAdapter.notifyDataSetChanged();
         }
 

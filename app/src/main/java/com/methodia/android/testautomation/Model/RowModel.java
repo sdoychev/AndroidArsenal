@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Model;
 
 import java.util.Comparator;
 
@@ -30,39 +30,39 @@ public
     -
     More info - https://gualtierotesta.wordpress.com/2014/03/03/tutorial-using-lombok-to-reduce-boilerplate-code-in-java/
 */
-class Model {
+class RowModel {
 
     // Comparator for sorting the list by Model name in ascending order.
-    public static Comparator<Model> NameAscendingComparator = new Comparator<Model>() {
+    public static Comparator<RowModel> NameAscendingComparator = new Comparator<RowModel>() {
         @Override
-        public int compare(Model lhs, Model rhs) {
+        public int compare(RowModel lhs, RowModel rhs) {
             String lhsName = lhs.getName().toUpperCase();
             String rhsName = rhs.getName().toUpperCase();
             return lhsName.compareTo(rhsName);
         }
     };
     // Comparator for sorting the list by Model name in descending order.
-    public static Comparator<Model> NameDescendingComparator = new Comparator<Model>() {
+    public static Comparator<RowModel> NameDescendingComparator = new Comparator<RowModel>() {
         @Override
-        public int compare(Model lhs, Model rhs) {
+        public int compare(RowModel lhs, RowModel rhs) {
             String lhsName = lhs.getName().toUpperCase();
             String rhsName = rhs.getName().toUpperCase();
             return rhsName.compareTo(lhsName);
         }
     };
     // Comparator for sorting the list by Model number in ascending order.
-    public static Comparator<Model> NumberAscendingComparator = new Comparator<Model>() {
+    public static Comparator<RowModel> NumberAscendingComparator = new Comparator<RowModel>() {
         @Override
-        public int compare(Model lhs, Model rhs) {
+        public int compare(RowModel lhs, RowModel rhs) {
             int lhsNumber = lhs.getNumber();
             int rhsNumber = rhs.getNumber();
             return lhsNumber - rhsNumber;
         }
     };
     // Comparator for sorting the list by Model number in descending order.
-    public static Comparator<Model> NumberDescendingComparator = new Comparator<Model>() {
+    public static Comparator<RowModel> NumberDescendingComparator = new Comparator<RowModel>() {
         @Override
-        public int compare(Model lhs, Model rhs) {
+        public int compare(RowModel lhs, RowModel rhs) {
             int lhsNumber = lhs.getNumber();
             int rhsNumber = rhs.getNumber();
             return rhsNumber - lhsNumber;

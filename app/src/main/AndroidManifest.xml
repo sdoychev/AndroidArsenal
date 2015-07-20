@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.methodia.android.testautomation" >
+    package="com.methodia.android.testautomation">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,10 +8,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.MainActivity"
-            android:label="@string/app_name" >
+            android:name=".Activity.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,21 +19,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.AsyncTaskTestActivity"
+            android:name=".Activity.AsyncTaskTestActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".Activities.TimberActivity"
+            android:name=".Activity.TimberActivity"
             android:label="@string/title_activity_timber_pid_cat" />
         <activity
-            android:name=".Activities.PicassoIonActivity"
+            android:name=".Activity.PicassoIonActivity"
             android:label="@string/title_activity_picasso_ion" />
         <activity
-            android:name=".Activities.ImageLibsActivity"
-            android:label="@string/title_activity_image_libs" ></activity>
+            android:name=".Activity.ImageLibsActivity"
+            android:label="@string/title_activity_image_libs" />
         <activity
-            android:name=".Activities.RetrofitRobospiceActivity"
-            android:label="@string/title_activity_retrofit_robospice">
-        </activity>
+            android:name=".Activity.RetrofitRobospiceActivity"
+            android:label="@string/title_activity_retrofit_robospice" />
     </application>
 
 </manifest>
