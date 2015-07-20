@@ -14,5 +14,7 @@
     <string name="tests_picasso_ion">Activity used for making tests with the Picasso and ion libraries.</string>
     <string name="title_activity_image_libs">ImageLibsActivity</string>
     <string name="tests_image_libs">Activity used for making tests with the Picasso, ion, Glide and UIL libraries.</string>
+    <string name="title_activity_retrofit_robospice">RetrofitRobospiceActivity</string>
+    <string name="tests_retrofit_robospice_libs">Activity used for making tests with the Retrofit and Robospice libraries.</string>
 
 </resources>

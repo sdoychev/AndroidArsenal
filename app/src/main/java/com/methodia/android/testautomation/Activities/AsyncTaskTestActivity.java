@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Activities;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.methodia.android.testautomation.R;
+import com.methodia.android.testautomation.TestTask;
 
 
 public class AsyncTaskTestActivity extends Activity {

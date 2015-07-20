@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Activities;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.koushikdutta.ion.Ion;
+import com.methodia.android.testautomation.R;
+import com.methodia.android.testautomation.Util;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;

@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.methodia.android.testautomation.R;
+import com.methodia.android.testautomation.Util;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;

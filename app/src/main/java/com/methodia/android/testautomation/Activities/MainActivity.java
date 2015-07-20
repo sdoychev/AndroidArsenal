@@ -1,4 +1,4 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import com.methodia.android.testautomation.Model;
+import com.methodia.android.testautomation.ModelAdapter;
+import com.methodia.android.testautomation.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
