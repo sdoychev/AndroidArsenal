@@ -9,8 +9,8 @@ Libraries included:
 - [Butter knife] (https://github.com/JakeWharton/butterknife)
 - [Lombok] (https://projectlombok.org/)
 - [Picasso] (https://github.com/square/picasso)
-- [ion] (https://github.com/koush/ion)
 - [Picasso Transformations] (https://github.com/wasabeef/picasso-transformations)
+- [ion] (https://github.com/koush/ion)
 - [Glide] (https://github.com/bumptech/glide)
 - [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
 
@@ -19,11 +19,11 @@ TODO demos with:
 - [Robospice] (https://github.com/stephanenicolas/robospice)
 - Robospice + Retrofit
 - [Android View Animations] (https://github.com/daimajia/AndroidViewAnimations)
-- [Rx Java] (https://github.com/ReactiveX/RxJava)
-- [Retrolambda] (https://github.com/orfjackal/retrolambda)
 - [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
 - [Schematic] (https://github.com/SimonVT/schematic)
 - [Parceler] (https://github.com/johncarl81/parceler)
 - [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)
 - [EventBus] (http://greenrobot.github.io/EventBus/)
+- [Rx Java] (https://github.com/ReactiveX/RxJava)
+- [Retrolambda] (https://github.com/orfjackal/retrolambda)
