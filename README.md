@@ -11,10 +11,10 @@ Libraries included:
 - [Picasso] (https://github.com/square/picasso)
 - [ion] (https://github.com/koush/ion)
 - [Picasso Transformations] (https://github.com/wasabeef/picasso-transformations)
-
-TODO demos with:
 - [Glide] (https://github.com/bumptech/glide)
 - [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
+
+TODO demos with:
 - [Retrofit] (https://github.com/square/retrofit)
 - [Robospice] (https://github.com/stephanenicolas/robospice)
 - Robospice + Retrofit

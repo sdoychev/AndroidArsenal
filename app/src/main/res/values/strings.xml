@@ -12,5 +12,7 @@
     <string name="tests_timber">Activity used for making tests with the Timber and ButterKnife libraries. \n \nCustom colors for the Logcat: Verbose - BBBBBB, Debug - 6897BB, Info - 6A8759, Warning - BBB529, Error - FF6B68, Assert - 9876AA.</string>
     <string name="title_activity_picasso_ion">PicassoIonActivity</string>
     <string name="tests_picasso_ion">Activity used for making tests with the Picasso and ion libraries.</string>
+    <string name="title_activity_image_libs">ImageLibsActivity</string>
+    <string name="tests_image_libs">Activity used for making tests with the Picasso, ion, Glide and UIL libraries.</string>
 
 </resources>
