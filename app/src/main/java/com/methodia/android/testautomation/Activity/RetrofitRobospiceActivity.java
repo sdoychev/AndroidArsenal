@@ -28,6 +28,8 @@ public class RetrofitRobospiceActivity extends Activity {
         setContentView(R.layout.activity_retrofit_robospice);
         Util.toolsSetup(this, this);
 
+        //Good practices for Retrofit - http://blog.robinchutaux.com/blog/a-smart-way-to-use-retrofit/
+
         //Get repo data from background task
         BackgroundTask rt = new BackgroundTask();
         rt.execute();
