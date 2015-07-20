@@ -12,6 +12,7 @@ import com.koushikdutta.ion.Ion;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import timber.log.Timber;
 
 
@@ -46,6 +47,19 @@ public class PicassoIonActivity extends Activity {
                         //.fit()        //You have to choose fit or resize. Good practice - always use fit with centerCrop.
                 .centerCrop()
                 .rotate(360)
+                .transform(new CropCircleTransformation())
+                    /* Available transformations:
+                        CropCircleTransformation
+                        CropSquareTransformation
+                        CropTransformation(width, height, CropTransformation.FORM{Top, Center, Bottom})
+                        ColorFilterTransformation(int color)
+                        GrayscaleTransformation
+                        BlurTransformation(context) (requires setting in defaultConfig of app build.gradle - renderscriptTargetApi 21 and renderscriptSupportModeEnabled true)
+                        Effect(context) - where effect can be
+                            ToonFilterTransformation, SepiaFilterTransformation, ContrastFilterTransformation, InvertFilterTransformation, PixelationFilterTransformation
+                            SketchFilterTransformation, SwirlFilterTransformation, KuwaharaFilterTransformation, VignetteFilterTransformation.
+                        RoundedCornersTransformation(int radius, int margin)
+                    */
                 .placeholder(android.R.drawable.stat_notify_sync)
                 .error(android.R.drawable.stat_notify_error)
                 .into(imageViewTwo);

@@ -10,9 +10,9 @@ Libraries included:
 - [Lombok] (https://projectlombok.org/)
 - [Picasso] (https://github.com/square/picasso)
 - [ion] (https://github.com/koush/ion)
+- [Picasso Transformations] (https://github.com/wasabeef/picasso-transformations)
 
 TODO demos with:
-- [Picasso Transformations] (https://github.com/wasabeef/picasso-transformations)
 - [Glide] (https://github.com/bumptech/glide)
 - [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
 - [Retrofit] (https://github.com/square/retrofit)
