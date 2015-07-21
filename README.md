@@ -17,10 +17,9 @@ Libraries included:
 - [Robospice] (https://github.com/stephanenicolas/robospice)
 - [Robospice + Retrofit] (https://github.com/octo-online/RoboSpice-samples/tree/release/robospice-sample-retrofit)
 - [Android View Animations] (https://github.com/daimajia/AndroidViewAnimations)
+- [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
 
 TODO demos with:
-- [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
-- [Schematic] (https://github.com/SimonVT/schematic)
 - [Parceler] (https://github.com/johncarl81/parceler)
 - [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)

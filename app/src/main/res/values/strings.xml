@@ -19,5 +19,7 @@
     <string name="tests_retrofit_robospice_libs">Activity used for making tests with the Retrofit and Robospice libraries.</string>
     <string name="title_activity_retrofit_and_robospice">RetrofitAndRobospice</string>
     <string name="tests_retrofit_and_robospice">Activity used for making tests with the Retrofit + Robospice (both together) libraries.</string>
+    <string name="title_activity_active_android">ActiveAndroidActivity</string>
+    <string name="tests_active_android_lib">Activity used for testing the ActiveAndroid library.</string>
 
 </resources>
