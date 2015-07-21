@@ -1,6 +1,9 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Network;
 
+import com.methodia.android.testautomation.Model.ReposList;
 import com.octo.android.robospice.request.springandroid.SpringAndroidSpiceRequest;
+
+import retrofit.RestAdapter;
 
 /**
  * Created by Stefan.Doychev on 21.07.2015.
@@ -16,10 +19,11 @@ public class ReposRequest extends SpringAndroidSpiceRequest<ReposList> {
 
     @Override
     public ReposList loadDataFromNetwork() throws Exception {
-
-        //String url = String.format("https://api.github.com/users/%s/followers", user);
-        String url = String.format("https://api.github.com/users/%s/repos", user);
-        return getRestTemplate().getForObject(url, ReposList.class);
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint("https://api.github.com")
+                .build();
+        GithubService service = restAdapter.create(GithubService.class);
+        return service.listRepos("sdoychev");
     }
 
     /**

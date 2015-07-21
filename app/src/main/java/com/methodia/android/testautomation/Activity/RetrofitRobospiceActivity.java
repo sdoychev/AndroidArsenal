@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.methodia.android.testautomation.GithubService;
-import com.methodia.android.testautomation.JsonSpiceService;
-import com.methodia.android.testautomation.Model.Repo;
+import com.methodia.android.testautomation.Model.ReposList;
 import com.methodia.android.testautomation.Model.User;
+import com.methodia.android.testautomation.Network.GithubService;
+import com.methodia.android.testautomation.Network.JsonSpiceService;
+import com.methodia.android.testautomation.Network.ReposRequest;
 import com.methodia.android.testautomation.R;
-import com.methodia.android.testautomation.ReposList;
-import com.methodia.android.testautomation.ReposRequest;
 import com.methodia.android.testautomation.Util;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
@@ -71,8 +70,7 @@ public class RetrofitRobospiceActivity extends Activity {
         service.listUsersFromCity("Sofia", callback);
 
         //Robospice
-        performRequest("octocat");
-
+        performRequest("sdoychev");
     }
 
     @Override
@@ -85,7 +83,7 @@ public class RetrofitRobospiceActivity extends Activity {
         ReposRequest request = new ReposRequest(user);
         String lastRequestCacheKey = request.createCacheKey();
 
-        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, new ListFollowersRequestListener());
+        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, new ListReposRequestListener());
     }
 
     @Override
@@ -110,7 +108,7 @@ public class RetrofitRobospiceActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class ListFollowersRequestListener implements RequestListener<ReposList> {
+    private class ListReposRequestListener implements RequestListener<ReposList> {
 
         @Override
         public void onRequestFailure(SpiceException e) {
@@ -119,14 +117,13 @@ public class RetrofitRobospiceActivity extends Activity {
 
         @Override
         public void onRequestSuccess(ReposList listRepos) {
-            Timber.e(listRepos.toString());
             for (int i = 0; i < listRepos.size(); i++) {
-                Timber.d(listRepos.get(i).toString());
+                Timber.e(listRepos.get(i).toString());
             }
         }
     }
 
-    private class BackgroundTask extends AsyncTask<String, Void, List<Repo>> {
+    private class BackgroundTask extends AsyncTask<String, Void, ReposList> {
         RestAdapter restAdapter;
 
         @Override
@@ -137,13 +134,13 @@ public class RetrofitRobospiceActivity extends Activity {
         }
 
         @Override
-        protected List<Repo> doInBackground(String... params) {
+        protected ReposList doInBackground(String... params) {
             GithubService service = restAdapter.create(GithubService.class);
             return service.listRepos("sdoychev");
         }
 
         @Override
-        protected void onPostExecute(List<Repo> repos) {
+        protected void onPostExecute(ReposList repos) {
             for (int i = 0; i < repos.size(); i++) {
                 Timber.d(repos.get(i).toString());
             }

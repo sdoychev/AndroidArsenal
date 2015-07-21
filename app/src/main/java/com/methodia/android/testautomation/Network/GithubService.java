@@ -1,6 +1,6 @@
-package com.methodia.android.testautomation;
+package com.methodia.android.testautomation.Network;
 
-import com.methodia.android.testautomation.Model.Repo;
+import com.methodia.android.testautomation.Model.ReposList;
 import com.methodia.android.testautomation.Model.User;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import retrofit.http.Query;
 public interface GithubService {
 
     @GET("/users/{user}/repos")
-    List<Repo> listRepos(@Path("user") String user);
+    ReposList listRepos(@Path("user") String user);
 
     @GET("/users")
     void listUsersFromCity(@Query("location") String city, Callback<List<User>> cb);

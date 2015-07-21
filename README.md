@@ -14,9 +14,9 @@ Libraries included:
 - [Glide] (https://github.com/bumptech/glide)
 - [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
 - [Retrofit] (https://github.com/square/retrofit)
+- [Robospice] (https://github.com/stephanenicolas/robospice)
 
 TODO demos with:
-- [Robospice] (https://github.com/stephanenicolas/robospice)
 - Robospice + Retrofit
 - [Android View Animations] (https://github.com/daimajia/AndroidViewAnimations)
 - [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
