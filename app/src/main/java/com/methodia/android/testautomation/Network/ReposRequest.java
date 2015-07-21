@@ -23,7 +23,7 @@ public class ReposRequest extends SpringAndroidSpiceRequest<ReposList> {
                 .setEndpoint("https://api.github.com")
                 .build();
         GithubService service = restAdapter.create(GithubService.class);
-        return service.listRepos("sdoychev");
+        return service.listRepos(user);
     }
 
     /**

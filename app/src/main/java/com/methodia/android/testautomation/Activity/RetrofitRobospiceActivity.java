@@ -48,6 +48,9 @@ public class RetrofitRobospiceActivity extends Activity {
         BackgroundTask rt = new BackgroundTask();
         rt.execute();
 
+        //Same result using Robospice
+        performRequest("sdoychev");
+
         //Get user data with retrofit Callback
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("https://api.github.com")
@@ -68,9 +71,6 @@ public class RetrofitRobospiceActivity extends Activity {
             }
         };
         service.listUsersFromCity("Sofia", callback);
-
-        //Robospice
-        performRequest("sdoychev");
     }
 
     @Override
@@ -82,8 +82,7 @@ public class RetrofitRobospiceActivity extends Activity {
     private void performRequest(String user) {
         ReposRequest request = new ReposRequest(user);
         String lastRequestCacheKey = request.createCacheKey();
-
-        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, new ListReposRequestListener());
+        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_MINUTE, new ListReposRequestListener());
     }
 
     @Override
@@ -109,16 +108,15 @@ public class RetrofitRobospiceActivity extends Activity {
     }
 
     private class ListReposRequestListener implements RequestListener<ReposList> {
-
         @Override
         public void onRequestFailure(SpiceException e) {
-            //update your UI
+            Timber.e("Error while obtaining the user data " + e);
         }
 
         @Override
-        public void onRequestSuccess(ReposList listRepos) {
-            for (int i = 0; i < listRepos.size(); i++) {
-                Timber.e(listRepos.get(i).toString());
+        public void onRequestSuccess(ReposList reposList) {
+            for (int i = 0; i < reposList.size(); i++) {
+                Timber.d(reposList.get(i).toString());
             }
         }
     }
