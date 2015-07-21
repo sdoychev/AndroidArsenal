@@ -15,9 +15,9 @@ Libraries included:
 - [Universal Image Loader] (https://github.com/nostra13/Android-Universal-Image-Loader)
 - [Retrofit] (https://github.com/square/retrofit)
 - [Robospice] (https://github.com/stephanenicolas/robospice)
+- [Robospice + Retrofit] (https://github.com/octo-online/RoboSpice-samples/tree/release/robospice-sample-retrofit)
 
 TODO demos with:
-- Robospice + Retrofit
 - [Android View Animations] (https://github.com/daimajia/AndroidViewAnimations)
 - [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
 - [Schematic] (https://github.com/SimonVT/schematic)

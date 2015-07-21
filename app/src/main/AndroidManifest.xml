@@ -38,6 +38,14 @@
         <service
             android:name=".Network.JsonSpiceService"
             android:exported="false" />
+
+        <activity
+            android:name=".Activity.RetrofitAndRobospice"
+            android:label="@string/title_activity_retrofit_and_robospice" />
+
+        <service
+            android:name=".Network.SampleRetrofitSpiceService"
+            android:exported="false" />
     </application>
 
 </manifest>

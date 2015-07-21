@@ -46,6 +46,7 @@ dependencies {
     compile 'com.octo.android.robospice:robospice:1.4.14'
     compile 'com.octo.android.robospice:robospice-spring-android:1.4.14'
     compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    compile 'com.octo.android.robospice:robospice-retrofit:1.4.14'
     androidTestCompile 'com.android.support.test:runner:0.2'
     androidTestCompile 'com.android.support.test:rules:0.2'
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'

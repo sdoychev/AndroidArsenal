@@ -16,5 +16,7 @@
     <string name="tests_image_libs">Activity used for making tests with the Picasso, ion, Glide and UIL libraries.</string>
     <string name="title_activity_retrofit_robospice">RetrofitRobospiceActivity</string>
     <string name="tests_retrofit_robospice_libs">Activity used for making tests with the Retrofit and Robospice libraries.</string>
+    <string name="title_activity_retrofit_and_robospice">RetrofitAndRobospice</string>
+    <string name="tests_retrofit_and_robospice">Activity used for making tests with the Retrofit + Robospice (both together) libraries.</string>
 
 </resources>

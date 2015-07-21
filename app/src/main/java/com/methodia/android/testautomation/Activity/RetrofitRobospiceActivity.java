@@ -48,7 +48,7 @@ public class RetrofitRobospiceActivity extends Activity {
         BackgroundTask rt = new BackgroundTask();
         rt.execute();
 
-        //Same result using Robospice
+        //Same result using Robospice (stand alone Robospice)
         performRequest("sdoychev");
 
         //Get user data with retrofit Callback
