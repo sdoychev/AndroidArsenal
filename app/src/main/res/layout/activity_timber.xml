@@ -32,4 +32,13 @@
         android:layout_marginTop="10dp"
         android:text="Button Two" />
 
+    <TextView
+        android:id="@+id/animationsTestTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonTwo"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="@string/tests_animations" />
+
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.methodia.android.testautomation.R;
 
 import java.util.List;
@@ -42,6 +44,9 @@ public class TimberActivity extends Activity {
     // IT IS POSSIBLE TO CREATE LISTS OF VIEWS ======
     @Bind({R.id.buttonOne, R.id.buttonTwo})
     List<Button> buttonsList;
+
+    @Bind(R.id.animationsTestTextView)
+    TextView attv;
 
     // HANDLE BUTTON CLICKS ===
     @OnClick(R.id.buttonOne)
@@ -90,6 +95,20 @@ public class TimberActivity extends Activity {
         ButterKnife.apply(buttonsList, INVISIBLE);
         ButterKnife.apply(buttonsList, SET_VISIBILITY, View.VISIBLE);
 
+        /* Tests with the Android View Animations library.
+        Useful animations are:
+            Attention - Flash, Pulse, Shake, Bounce, Tada, StandUp
+            Special - RollIn, RollOut, Landing, TakingOff, DropOut
+            Bounce - BounceIn, BounceInDirection
+            Fade - FadeIn, FadeInDirection, FadeOut, FadeOutDirection
+            Flip - FlipInX, FlipOutX, FlipOutY
+            Rotate - RotateIn, RotateInDirection, RotateOut, RotateOutDirection
+            Slide - SlideInDirection, SlideOutDirection
+            Zoom - ZoomIn, ZoomInDirection, ZoomOut, ZoomOutDirection
+         */
+        YoYo.with(Techniques.StandUp)
+                .duration(2000)
+                .playOn(attv);
     }
 
     @Override
