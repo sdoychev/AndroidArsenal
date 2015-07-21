@@ -7,10 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.methodia.android.testautomation.GithubService;
+import com.methodia.android.testautomation.JsonSpiceService;
 import com.methodia.android.testautomation.Model.Repo;
 import com.methodia.android.testautomation.Model.User;
 import com.methodia.android.testautomation.R;
+import com.methodia.android.testautomation.ReposList;
+import com.methodia.android.testautomation.ReposRequest;
 import com.methodia.android.testautomation.Util;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.DurationInMillis;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.List;
 
@@ -21,6 +28,14 @@ import retrofit.client.Response;
 import timber.log.Timber;
 
 public class RetrofitRobospiceActivity extends Activity {
+
+    protected SpiceManager spiceManager = new SpiceManager(JsonSpiceService.class);
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        spiceManager.start(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +69,23 @@ public class RetrofitRobospiceActivity extends Activity {
             }
         };
         service.listUsersFromCity("Sofia", callback);
+
+        //Robospice
+        performRequest("octocat");
+
+    }
+
+    @Override
+    protected void onStop() {
+        spiceManager.shouldStop();
+        super.onStop();
+    }
+
+    private void performRequest(String user) {
+        ReposRequest request = new ReposRequest(user);
+        String lastRequestCacheKey = request.createCacheKey();
+
+        spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, new ListFollowersRequestListener());
     }
 
     @Override
@@ -76,6 +108,22 @@ public class RetrofitRobospiceActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class ListFollowersRequestListener implements RequestListener<ReposList> {
+
+        @Override
+        public void onRequestFailure(SpiceException e) {
+            //update your UI
+        }
+
+        @Override
+        public void onRequestSuccess(ReposList listRepos) {
+            Timber.e(listRepos.toString());
+            for (int i = 0; i < listRepos.size(); i++) {
+                Timber.d(listRepos.get(i).toString());
+            }
+        }
     }
 
     private class BackgroundTask extends AsyncTask<String, Void, List<Repo>> {
