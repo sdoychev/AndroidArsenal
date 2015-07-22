@@ -26,3 +26,4 @@ TODO demos with:
 - [EventBus] (http://greenrobot.github.io/EventBus/)
 - [Rx Java] (https://github.com/ReactiveX/RxJava)
 - [Retrolambda] (https://github.com/orfjackal/retrolambda)
+- [Android Design Support Library] (http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234)
