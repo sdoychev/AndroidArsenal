@@ -13,15 +13,23 @@ import com.methodia.android.testautomation.Util;
 
 import org.parceler.Parcels;
 
+import icepick.Icepick;
+import icepick.Icicle;
 import timber.log.Timber;
 
 public class ParcelerIcePickActivity extends Activity {
+    @Icicle
+    String automaticallySavedAndRestoredString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parceler_ice_pick);
         Util.toolsSetup(this, this);
+
+        //IcePick restore states of all the @Icicle variables
+        Icepick.restoreInstanceState(this, savedInstanceState);
+        automaticallySavedAndRestoredString = "Sample new string.";
 
         ParcelerModel test = new ParcelerModel();
         test.setId(1);
@@ -38,6 +46,13 @@ public class ParcelerIcePickActivity extends Activity {
         Intent intent = new Intent(ParcelerIcePickActivity.this, ReceivingBundleActivity.class);
         intent.putExtra("bundleExtra", bundle);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //IcePick sav states of all the @Icicle variables
+        Icepick.saveInstanceState(this, outState);
     }
 
     @Override

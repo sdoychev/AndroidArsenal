@@ -19,9 +19,9 @@ Libraries included:
 - [Android View Animations] (https://github.com/daimajia/AndroidViewAnimations)
 - [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
 - [Parceler] (https://github.com/johncarl81/parceler)
+- [IcePick] (https://github.com/frankiesardo/icepick)
 
 TODO demos with:
-- [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)
 - [EventBus] (http://greenrobot.github.io/EventBus/)
 - [Rx Java] (https://github.com/ReactiveX/RxJava)
