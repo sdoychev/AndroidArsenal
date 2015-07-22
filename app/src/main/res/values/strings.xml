@@ -23,5 +23,6 @@
     <string name="tests_active_android_lib">Activity used for testing the ActiveAndroid library.</string>
     <string name="title_activity_parceler_ice_pick">ParcelerIcePickActivity</string>
     <string name="tests_parceler_icepick_libs">Activity used for making tests with the Parceler and IcePick libraries.</string>
+    <string name="title_activity_receiving_bundle">ReceivingBundleActivity</string>
 
 </resources>

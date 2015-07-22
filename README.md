@@ -18,9 +18,9 @@ Libraries included:
 - [Robospice + Retrofit] (https://github.com/octo-online/RoboSpice-samples/tree/release/robospice-sample-retrofit)
 - [Android View Animations] (https://github.com/daimajia/AndroidViewAnimations)
 - [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
+- [Parceler] (https://github.com/johncarl81/parceler)
 
 TODO demos with:
-- [Parceler] (https://github.com/johncarl81/parceler)
 - [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)
 - [EventBus] (http://greenrobot.github.io/EventBus/)
