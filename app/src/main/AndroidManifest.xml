@@ -34,9 +34,13 @@
             android:label="@string/title_activity_retrofit_and_robospice" />
         <activity
             android:name=".Activity.ActiveAndroidActivity"
-            android:label="@string/title_activity_active_android">
+            android:label="@string/title_activity_active_android" />
+        <activity
+            android:name=".Activity.ParcelerIcePickActivity"
+            android:label="@string/title_activity_parceler_ice_pick">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
