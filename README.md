@@ -22,8 +22,8 @@ Libraries included:
 - [IcePick] (https://github.com/frankiesardo/icepick)
 - [LeakCanary] (https://github.com/square/leakcanary)
 - [EventBus] (http://greenrobot.github.io/EventBus/)
+- [Android Design Support Library] (http://android-developers.blogspot.com/2015/05/android-design-support-library.html)
 
 TODO demos with:
 - [Rx Java] (https://github.com/ReactiveX/RxJava)
 - [Retrolambda] (https://github.com/orfjackal/retrolambda)
-- [Android Design Support Library] (http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234)
