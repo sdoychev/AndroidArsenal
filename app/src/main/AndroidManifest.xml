@@ -47,6 +47,15 @@
         <activity
             android:name=".Activity.EventBusActivity"
             android:label="@string/title_activity_event_bus" />
+        <activity
+            android:name=".Activity.RXActivity"
+            android:label="@string/title_activity_rx">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".Network.JsonSpiceService"

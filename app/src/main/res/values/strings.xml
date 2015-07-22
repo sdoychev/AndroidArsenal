@@ -28,5 +28,7 @@
     <string name="tests_leak_canary_lib">Activity used for making tests with the Leak Canary library.</string>
     <string name="title_activity_event_bus">EventBusActivity</string>
     <string name="tests_event_bus_lib">Activity used for making tests with the EventBus library.</string>
+    <string name="title_activity_rx">RXActivity</string>
+    <string name="tests_rxjava_retrolambda_libs">Activity used for making tests with the Rx Java and Retrolambda libraries.</string>
 
 </resources>
