@@ -20,9 +20,9 @@ Libraries included:
 - [ActiveAndroid] (https://github.com/pardom/ActiveAndroid)
 - [Parceler] (https://github.com/johncarl81/parceler)
 - [IcePick] (https://github.com/frankiesardo/icepick)
+- [LeakCanary] (https://github.com/square/leakcanary)
 
 TODO demos with:
-- [LeakCanary] (https://github.com/square/leakcanary)
 - [EventBus] (http://greenrobot.github.io/EventBus/)
 - [Rx Java] (https://github.com/ReactiveX/RxJava)
 - [Retrolambda] (https://github.com/orfjackal/retrolambda)

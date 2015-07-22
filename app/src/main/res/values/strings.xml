@@ -24,5 +24,7 @@
     <string name="title_activity_parceler_ice_pick">ParcelerIcePickActivity</string>
     <string name="tests_parceler_icepick_libs">Activity used for making tests with the Parceler and IcePick libraries.</string>
     <string name="title_activity_receiving_bundle">ReceivingBundleActivity</string>
+    <string name="title_activity_leak_canary">LeakCanaryActivity</string>
+    <string name="tests_leak_canary_lib">Activity used for making tests with the Leak Canary library.</string>
 
 </resources>

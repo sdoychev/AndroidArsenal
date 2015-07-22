@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".ActiveAndroidApp"
+        android:name=".LibrariesTestApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,16 +37,19 @@
             android:label="@string/title_activity_active_android" />
         <activity
             android:name=".Activity.ParcelerIcePickActivity"
-            android:label="@string/title_activity_parceler_ice_pick">
+            android:label="@string/title_activity_parceler_ice_pick" />
+        <activity
+            android:name=".Activity.ReceivingBundleActivity"
+            android:label="@string/title_activity_receiving_bundle" />
+        <activity
+            android:name=".Activity.LeakCanaryActivity"
+            android:label="@string/title_activity_leak_canary">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity.ReceivingBundleActivity"
-            android:label="@string/title_activity_receiving_bundle" />
 
         <service
             android:name=".Network.JsonSpiceService"
