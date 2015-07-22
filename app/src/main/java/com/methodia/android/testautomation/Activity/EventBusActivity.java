@@ -5,14 +5,36 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.methodia.android.testautomation.Model.ChargingEvent;
 import com.methodia.android.testautomation.R;
+import com.methodia.android.testautomation.Util;
+
+import de.greenrobot.event.EventBus;
+import timber.log.Timber;
 
 public class EventBusActivity extends Activity {
+
+    private EventBus bus = EventBus.getDefault();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_bus);
+        Util.toolsSetup(this, this);
+
+        // Register as a subscriber
+        bus.register(this);
+    }
+
+    public void onEvent(ChargingEvent event) {
+        Timber.d(event.toString());
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Unregister
+        bus.unregister(this);
+        super.onDestroy();
     }
 
     @Override
