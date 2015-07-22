@@ -46,7 +46,10 @@
             android:label="@string/title_activity_leak_canary" />
         <activity
             android:name=".Activity.EventBusActivity"
-            android:label="@string/title_activity_event_bus">
+            android:label="@string/title_activity_event_bus" />
+        <activity
+            android:name=".Activity.MaterialActivity"
+            android:label="@string/title_activity_material">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
