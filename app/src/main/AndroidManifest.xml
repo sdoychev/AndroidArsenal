@@ -43,7 +43,10 @@
             android:label="@string/title_activity_receiving_bundle" />
         <activity
             android:name=".Activity.LeakCanaryActivity"
-            android:label="@string/title_activity_leak_canary">
+            android:label="@string/title_activity_leak_canary" />
+        <activity
+            android:name=".Activity.EventBusActivity"
+            android:label="@string/title_activity_event_bus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
