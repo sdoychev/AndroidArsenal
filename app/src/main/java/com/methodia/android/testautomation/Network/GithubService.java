@@ -1,5 +1,6 @@
 package com.methodia.android.testautomation.Network;
 
+import com.methodia.android.testautomation.Model.Contributor;
 import com.methodia.android.testautomation.Model.ReposList;
 import com.methodia.android.testautomation.Model.User;
 
@@ -20,4 +21,7 @@ public interface GithubService {
 
     @GET("/users")
     void listUsersFromCity(@Query("location") String city, Callback<List<User>> cb);
+
+    @GET("/repos/{user}/{repo}/contributors")
+    List<Contributor> listContributors(@Path("user") String user, @Path("repo") String repo);
 }
