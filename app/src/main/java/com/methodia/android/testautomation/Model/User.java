@@ -16,5 +16,6 @@ class User {
     private String repos_url;
     private String type;
     private boolean site_admin;
+    private String name;
 }
 

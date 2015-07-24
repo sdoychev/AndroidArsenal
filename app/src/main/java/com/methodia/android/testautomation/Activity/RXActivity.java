@@ -20,6 +20,8 @@ import timber.log.Timber;
 
 public class RXActivity extends AppCompatActivity {
 
+    //A good tutorial on the topic is http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/
+
     private static <T> Observable.Operator<T, List<T>> flattenList() {
         return new Observable.Operator<T, List<T>>() {
             @Override
@@ -97,9 +99,12 @@ public class RXActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Observable<List<Contributor>> contributors) {
             contributors.lift(flattenList())
-                    //.flatMap(c -> service.getUser(c.g ) )
                     .filter(contributor -> contributor.getContributions() >= 3)
-                    .forEach(contributor -> Timber.d(contributor.toString()));
+                            //.forEach(contributor -> Timber.d(contributor.toString()));
+                    .flatMap(contributor -> service.getUser(contributor.getLogin()))
+                    .filter(user -> user.getName().length() <= 12)
+                    .take(10)
+                    .forEach(user -> Timber.d(user.getName()));
         }
     }
 }
