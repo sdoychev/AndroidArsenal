@@ -22,31 +22,6 @@ public class RXActivity extends AppCompatActivity {
 
     //A good tutorial on the topic is http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/
 
-    private static <T> Observable.Operator<T, List<T>> flattenList() {
-        return new Observable.Operator<T, List<T>>() {
-            @Override
-            public Subscriber<? super List<T>> call(final Subscriber<? super T> subscriber) {
-                return new Subscriber<List<T>>() {
-                    @Override
-                    public void onCompleted() {
-                        subscriber.onCompleted();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        subscriber.onError(e);
-                    }
-
-                    @Override
-                    public void onNext(List<T> contributors) {
-                        for (T c : contributors)
-                            subscriber.onNext(c);
-                    }
-                };
-            }
-        };
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +56,31 @@ public class RXActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private <T> Observable.Operator<T, List<T>> flattenList() {
+        return new Observable.Operator<T, List<T>>() {
+            @Override
+            public Subscriber<? super List<T>> call(final Subscriber<? super T> subscriber) {
+                return new Subscriber<List<T>>() {
+                    @Override
+                    public void onCompleted() {
+                        subscriber.onCompleted();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        subscriber.onError(e);
+                    }
+
+                    @Override
+                    public void onNext(List<T> contributors) {
+                        for (T c : contributors)
+                            subscriber.onNext(c);
+                    }
+                };
+            }
+        };
+    }
+
     private class BackgroundTask extends AsyncTask<String, Void, Observable<List<Contributor>>> {
         RestAdapter restAdapter;
         GithubService service;
@@ -98,6 +98,7 @@ public class RXActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Observable<List<Contributor>> contributors) {
+
             contributors.lift(flattenList())
                     .filter(contributor -> contributor.getContributions() >= 3)
                             //.forEach(contributor -> Timber.d(contributor.toString()));
