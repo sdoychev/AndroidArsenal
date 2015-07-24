@@ -1,5 +1,6 @@
 package com.methodia.android.testautomation.Activity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,13 +13,37 @@ import com.methodia.android.testautomation.Util;
 
 import java.util.List;
 
-import retrofit.Callback;
 import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import rx.Observable;
+import rx.Subscriber;
 import timber.log.Timber;
 
 public class RXActivity extends AppCompatActivity {
+
+    private static <T> Observable.Operator<T, List<T>> flattenList() {
+        return new Observable.Operator<T, List<T>>() {
+            @Override
+            public Subscriber<? super List<T>> call(final Subscriber<? super T> subscriber) {
+                return new Subscriber<List<T>>() {
+                    @Override
+                    public void onCompleted() {
+                        subscriber.onCompleted();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        subscriber.onError(e);
+                    }
+
+                    @Override
+                    public void onNext(List<T> contributors) {
+                        for (T c : contributors)
+                            subscriber.onNext(c);
+                    }
+                };
+            }
+        };
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +52,9 @@ public class RXActivity extends AppCompatActivity {
 
         Util.toolsSetup(this, this);
 
-        RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("https://api.github.com").build();
-        GithubService service = restAdapter.create(GithubService.class);
-        Callback callback = new Callback() {
-            @Override
-            public void success(Object contributors, Response response) {
-                List<Contributor> contributorsList = (List<Contributor>) contributors;
-                for (int i = 0; i < contributorsList.size(); i++) {
-                    Timber.d(contributorsList.get(i).toString());
-                }
-            }
-
-            @Override
-            public void failure(RetrofitError retrofitError) {
-                Timber.e("Error while obtaining the contributor data " + retrofitError);
-            }
-        };
-        service.listContributors("JakeWharton", "butterknife", callback);
+        //Get repo data from background task
+        BackgroundTask rt = new BackgroundTask();
+        rt.execute();
     }
 
     @Override
@@ -66,5 +77,29 @@ public class RXActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class BackgroundTask extends AsyncTask<String, Void, Observable<List<Contributor>>> {
+        RestAdapter restAdapter;
+        GithubService service;
+
+        @Override
+        protected void onPreExecute() {
+            restAdapter = new RestAdapter.Builder().setEndpoint("https://api.github.com").build();
+            service = restAdapter.create(GithubService.class);
+        }
+
+        @Override
+        protected Observable<List<Contributor>> doInBackground(String... params) {
+            return service.listContributors("JakeWharton", "butterknife");
+        }
+
+        @Override
+        protected void onPostExecute(Observable<List<Contributor>> contributors) {
+            contributors.lift(flattenList())
+                    //.flatMap(c -> service.getUser(c.g ) )
+                    .filter(contributor -> contributor.getContributions() >= 3)
+                    .forEach(contributor -> Timber.d(contributor.toString()));
+        }
     }
 }

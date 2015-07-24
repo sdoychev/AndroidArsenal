@@ -10,6 +10,7 @@ import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
 import retrofit.http.Query;
+import rx.Observable;
 
 /**
  * Created by Stefan.Doychev on 20.07.2015.
@@ -23,5 +24,8 @@ public interface GithubService {
     void listUsersFromCity(@Query("location") String city, Callback<List<User>> cb);
 
     @GET("/repos/{user}/{repo}/contributors")
-    void listContributors(@Path("user") String user, @Path("repo") String repo, Callback<List<Contributor>> cb);
+    Observable<List<Contributor>> listContributors(@Path("user") String user, @Path("repo") String repo);
+
+    @GET("/users/{user}")
+    Observable<User> getUser(@Path("user") String user);
 }
