@@ -23,5 +23,5 @@ public interface GithubService {
     void listUsersFromCity(@Query("location") String city, Callback<List<User>> cb);
 
     @GET("/repos/{user}/{repo}/contributors")
-    List<Contributor> listContributors(@Path("user") String user, @Path("repo") String repo);
+    void listContributors(@Path("user") String user, @Path("repo") String repo, Callback<List<Contributor>> cb);
 }

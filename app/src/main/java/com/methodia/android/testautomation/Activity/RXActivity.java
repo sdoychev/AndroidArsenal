@@ -5,8 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.methodia.android.testautomation.Model.Contributor;
+import com.methodia.android.testautomation.Network.GithubService;
 import com.methodia.android.testautomation.R;
 import com.methodia.android.testautomation.Util;
+
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+import timber.log.Timber;
 
 public class RXActivity extends AppCompatActivity {
 
@@ -16,6 +26,24 @@ public class RXActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rx);
 
         Util.toolsSetup(this, this);
+
+        RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("https://api.github.com").build();
+        GithubService service = restAdapter.create(GithubService.class);
+        Callback callback = new Callback() {
+            @Override
+            public void success(Object contributors, Response response) {
+                List<Contributor> contributorsList = (List<Contributor>) contributors;
+                for (int i = 0; i < contributorsList.size(); i++) {
+                    Timber.d(contributorsList.get(i).toString());
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError retrofitError) {
+                Timber.e("Error while obtaining the contributor data " + retrofitError);
+            }
+        };
+        service.listContributors("JakeWharton", "butterknife", callback);
     }
 
     @Override
