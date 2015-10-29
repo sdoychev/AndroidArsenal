@@ -7,6 +7,7 @@ Libraries included:
 - Casual Java-oriented tests
 - [Timber] (https://github.com/JakeWharton/timber)
 - [Butter knife] (https://github.com/JakeWharton/butterknife)
+- Explore [AndroidAnnotations ] (http://androidannotations.org/)
 - [Lombok] (https://projectlombok.org/)
 - [Picasso] (https://github.com/square/picasso)
 - [Picasso Transformations] (https://github.com/wasabeef/picasso-transformations)
